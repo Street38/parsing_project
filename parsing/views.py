@@ -6,3 +6,9 @@ def home(request):
 
 def pageNotFound(request, exception=None):
     return HttpResponseNotFound('<h1>Страница не существует</h1>')
+
+def signup(request):
+    pass
+
+def login(request):
+    pass
