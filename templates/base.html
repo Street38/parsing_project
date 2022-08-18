@@ -21,7 +21,7 @@
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Зарегистрироваться</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'signup' %}">Зарегистрироваться</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Войти</a>
@@ -30,5 +30,6 @@
     </div>
   </div>
 </nav>
+{% block content %} {% endblock %}
 </body>
 </html>
