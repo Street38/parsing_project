@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponseNotFound
-from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
-from django.contrib.auth.models import User
+from .forms import SignupForm
 
 
 def home(request):
@@ -15,8 +14,7 @@ def pageNotFound(request, exception=None):
 
 
 class SignUpView(CreateView):
-    model = User
-    form_class = UserCreationForm
+    form_class = SignupForm
     template_name = "parsing/signup.html"
     success_url = reverse_lazy("home")
 

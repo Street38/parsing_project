@@ -2,11 +2,17 @@
 {% block title %} Регистрация {% endblock %}
 
 {% block content %}
-<h1>{{ error }}</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <br>
-        <button type="submit">Зарегистрироваться</button>
-    </form>
+<div class="d-flex justify-content-center">
+        <form method="POST">
+            <br>
+            <h1>Форма регистрации</h1>
+            <br>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <div class="d-grid gap-2 col-4 mx-auto">
+              <button type="submit" class="btn btn-outline-dark">Зарегистрироваться</button>
+            </div>
+        </form>
+</div>
 {% endblock %}
