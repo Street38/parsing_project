@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} Регистрация {% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center input-group mb-3">
+        <form method="POST">
+            <br>
+            <h1>Форма авторизации</h1>
+            {% csrf_token %}
+            <br>
+            <div class="form-error"> {% if form.non_field_errors %} Логин или пароль указан не верно {% endif %}</div>
+            {% for f in form %}
+                <br>
+                {{ f }}
+            <div class="form-error"> {{ f.errors }} </div>
+            {% endfor %}
+            <br>
+            <div class="d-grid gap-2 col-4 mx-auto">
+              <button type="submit" class="btn btn-outline-dark">Войти</button>
+            </div>
+        </form>
+</div>
+{% endblock %}
+
+
+form-group col-md-4 col-sm-4
