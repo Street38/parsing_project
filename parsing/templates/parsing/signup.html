@@ -3,6 +3,7 @@
 
 {% block content %}
 <div class="d-flex justify-content-center">
+    {% if not request.user.is_authenticated %}
         <form method="POST">
             <br>
             <h1>Форма регистрации</h1>
@@ -14,5 +15,9 @@
               <button type="submit" class="btn btn-outline-dark">Зарегистрироваться</button>
             </div>
         </form>
+{% else %}
+    <br>
+    <h1>Вы уже вошли как <a href="{% url 'personal' %}"> {{request.user}}</a></h1>
 </div>
+{% endif %}
 {% endblock %}

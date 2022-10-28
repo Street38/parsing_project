@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
-{% block title %} Регистрация {% endblock %}
+{% block title %} Добавить товар {% endblock %}
 
 {% block content %}
+{% include 'includes/buttonset.html' %}
 <div class="d-flex justify-content-center">
         <form method="POST">
             <br>
-            <h1>Форма регистрации</h1>
+            <h1>Добавьте товар</h1>
             <br>
             {% csrf_token %}
             {{ form.as_p }}
             <br>
             <div class="d-grid gap-2 col-4 mx-auto">
-              <button type="submit" class="btn btn-outline-dark">Зарегистрироваться</button>
+              <button type="submit" class="btn btn-outline-dark">Добавить</button>
             </div>
         </form>
 </div>

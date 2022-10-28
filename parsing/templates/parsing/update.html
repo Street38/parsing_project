@@ -6,14 +6,18 @@
 <div class="d-flex justify-content-center">
         <form method="POST">
             <br>
-            <h1>Редактирование отслеживания</h1>
+            <h1>Редактирование</h1>
             <br>
             {% csrf_token %}
-            {{ form }}
-            <br>
-            <div class="d-grid gap-2 col-4 mx-auto">
-              <button type="submit" class="btn btn-outline-dark">Редактировать</button>
-            </div>
+            {{ form.as_p }}
+            <div class="row">
+                 <div class="d-grid gap-2 col-4 mx-auto">
+                     <button type="submit" class="btn btn-outline-dark">Сохранить</button>
+                     </div>
+                     <div class="d-grid gap-2 col-4 mx-auto">
+                     <a href="{{ link }}" class="btn btn-outline-dark" target="_blank">Просмотреть</a>
+                 </div>
         </form>
 </div>
 {% endblock %}
+

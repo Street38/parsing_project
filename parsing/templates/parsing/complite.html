@@ -3,37 +3,16 @@
 
 {% block content %}
 {% include 'includes/buttonset.html' %}
+<br>
+<br>
+<div class="d-flex justify-content-center">
+    <ul>
+        <h3>Завершенных отслеживаний - {{ tracking|length }}</h3>
+        <br>
+        {% for t in tracking %}
+            <li><a href="{% url 'archive' t.id %}">{{ t }}</li>
+        <br>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}
-
-
-<!--<div class="container-fluid">-->
-<!--    <div class="row flex-nowrap ">-->
-<!--        <div class="col-auto col-md-3 col-xl-1 px-sm-2 px-0" style="background-color: #decffc;">-->
-<!--            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">-->
-<!--                <br>-->
-<!--                <br>-->
-<!--                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">-->
-<!--                    <li class="nav-item">-->
-<!--                        <a href="#" class="nav-link align-middle px-0">-->
-<!--                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Активные</span>-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <li>-->
-<!--                        <a href="{% url 'create' %}" class="nav-link align-middle px-0">-->
-<!--                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Создать</span></a>-->
-<!--                    </li>-->
-<!--                    <li>-->
-<!--                        <a href="#" class="nav-link align-middle px-0">-->
-<!--                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Завершенные</span></a>-->
-<!--                    </li>-->
-<!--                </ul>-->
-<!--                <hr>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="col py-3">-->
-<!--          <div class="d-flex justify-content-center input-group mb-3">-->
-<!--            <h1>Список моих отслеживаний</h1>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->

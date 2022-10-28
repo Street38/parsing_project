@@ -2,17 +2,53 @@
 {% block title %} Регистрация {% endblock %}
 
 {% block content %}
-{% include 'includes/buttonset.html' %}
 <br>
 <br>
 <div class="d-flex justify-content-center">
-    <ul>
-        <h3>Завершенных отслеживаний - {{ tracking|length }}</h3>
-        <br>
-        {% for t in tracking %}
-            <li><a href="{{ t.get_url_tracking }}">{{ t }}</li>
-        <br>
-        {% endfor %}
-    </ul>
+        {% if form.initial.telegram_account %}
+        <form action="https://t.me/simple_parsing_bot?start={{ user.id }}" target="_blank">
+            <h1>Личный кабинет</h1>
+            <br>
+            {{ form.as_p }}
+            <br>
+            <br>
+            <div class="d-grid gap-2 col-4 mx-auto">
+                    <button type="submit" class="btn btn-outline-dark">Изменить</button>
+            </div>
+        </form>
+        {% else %}
+        <form method="POST" action="https://t.me/simple_parsing_bot?start={{ user.id }}" target="_blank">
+            <h1>Личный кабинет</h1>
+            <h6>Для получения уведомлений, <br> необходимо подписаться <br> на телеграм бота.</h6>
+            <div class="d-grid gap-2 col-4 mx-auto">
+                <br>
+                  <button type="submit" class="btn btn-outline-dark">Подписаться</button>
+            </div>
+        </form>
+        {% endif %}
 </div>
 {% endblock %}
+
+
+
+<!--<div class="d-flex justify-content-center">-->
+<!--        <form method="POST">-->
+<!--            <br>-->
+<!--            <h1>Личный кабинет</h1>-->
+<!--            <br>-->
+<!--            {% csrf_token %}-->
+<!--            {{ form.as_p }}-->
+<!--            <br>-->
+<!--            <div class="d-grid gap-2 col-4 mx-auto">-->
+<!--              <button type="submit" class="btn btn-outline-dark">Сохранить</button>-->
+<!--        </form>-->
+<!--        {% if name %}-->
+<!--        <form method="POST" action="https://t.me/simple_parsing_bot?start={{ user_id }}">-->
+<!--                  <button type="submit" class="btn btn-outline-dark">Подписаться</button>-->
+<!--            </div>-->
+<!--        </form>-->
+<!--        {% endif %}-->
+<!--</div>-->
+
+
+

@@ -6,14 +6,14 @@
 <div class="d-flex justify-content-center">
         <form method="POST">
             <br>
-            <h1>Редактирование</h1>
+            <h1>Отслеживание</h1>
             <br>
             {% csrf_token %}
             {{ form.as_p }}
             <br>
-            <div class="d-grid gap-2 col-4 mx-auto">
-              <button type="submit" class="btn btn-outline-dark">Сохранить</button>
-            </div>
+<!--            <div class="d-grid gap-2 col-4 mx-auto">-->
+<!--              <button type="submit" class="btn btn-outline-dark">Сохранить</button>-->
+<!--            </div>-->
         </form>
 </div>
 {% endblock %}
