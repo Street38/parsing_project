@@ -20,8 +20,8 @@ def pageNotFound(request, exception=None):
 
 class SignUpView(CreateView):
     form_class = SignupForm
-    template_name = "parsing/signup.html"
-    success_url = reverse_lazy("home")
+    template_name = 'parsing/signup.html'
+    success_url = reverse_lazy('home')
 
     def form_valid(self, form):
         user = form.save()
@@ -56,6 +56,7 @@ class ArchiveTrackingView(UpdateView):
 
 class CurrentListView(ListView):
     template_name = 'parsing/current.html'
+    model = TrackingModel
     context_object_name = 'tracking'
 
     def get_queryset(self):

@@ -24,5 +24,3 @@ class PersonalAccount(models.Model):
     telegram_chat_id = models.IntegerField(default=False)
     user = models.OneToOneField(User, on_delete=models.SET_NULL, null=True, blank=True)
 
-    # def __str__(self):
-    #     return self.telegram_account
