@@ -1,7 +1,8 @@
 *.log
 *.pot
 *.pyc
-__pycache__/
+.idea
+**__pycache__/
 db.sqlite3
 media
 /migrations
