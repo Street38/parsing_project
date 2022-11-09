@@ -5,6 +5,7 @@
 **__pycache__/
 db.sqlite3
 media
+venv
 /migrations
 local_settings.py
 prod_settings.py
