@@ -1,0 +1,10 @@
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+media
+/migrations
+local_settings.py
+prod_settings.py
+tocken_bot.py

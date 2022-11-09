@@ -1,8 +1,12 @@
+import os
+import sys
 import telebot
-from config.wsgi import *
+sys.path.append(os.path.join(sys.path[0], '../..'))
 from parsing.tocken_bot import TOKEN
+from parsing_project.wsgi import *
 from parsing.models import PersonalAccount
 from parsing.services.personal_account import update_peronalaccount, create_peronalaccount
+
 
 bot = telebot.TeleBot(TOKEN)
 
@@ -22,10 +26,6 @@ def start_bot(message):
         bot.send_message(message.chat.id, 'Телеграмм успешно подключен')
 
 
-def send_message_user(linkproduct, price, user_id):
-    '''Отправляет сообщение пользователю'''
-    user = PersonalAccount.objects.get(user_id=user_id)
-    bot.send_message(user.telegram_chat_id, f'Цена снизилась, составляет {price} р, можно брать')
 
 
 bot.polling()

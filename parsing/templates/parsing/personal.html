@@ -6,14 +6,15 @@
 <br>
 <div class="d-flex justify-content-center">
         {% if form.initial.telegram_account %}
-        <form action="https://t.me/simple_parsing_bot?start={{ user.id }}" target="_blank">
+        <form  target="_blank">
             <h1>Личный кабинет</h1>
             <br>
             {{ form.as_p }}
             <br>
             <br>
             <div class="d-grid gap-2 col-4 mx-auto">
-                    <button type="submit" class="btn btn-outline-dark">Изменить</button>
+                        <a href="https://t.me/simple_parsing_bot?start={{ user.id }}" class="btn btn-outline-dark"
+                           target="_blank">Изменить</a>
             </div>
         </form>
         {% else %}

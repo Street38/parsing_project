@@ -1,10 +1,14 @@
-from config.wsgi import *
-from parsing.models import TrackingModel
-from parsing.services.script_telegram_bot import send_message_user
+import os
+import sys
+import telebot
 import requests
-# import schedule
-# import time
+sys.path.append(os.path.join(sys.path[0], '../..'))
+from parsing_project.wsgi import *
+from parsing.models import TrackingModel, PersonalAccount
+from parsing.tocken_bot import TOKEN
 from django.db.models import Q
+
+bot = telebot.TeleBot(TOKEN)
 
 
 def daily_check_tracking():
@@ -33,7 +37,8 @@ def get_link_card(linkproduct):
                 f"dest=-1221148,-145454,-1430613,-5827642&nm={id}"
     return link_card
 
-# schedule.every().day.at('18:48').do(testview)
-# while True:
-#     schedule.run_pending()
-#     time.sleep(1)
+
+def send_message_user(linkproduct, price, user_id):
+    '''Отправляет сообщение пользователю'''
+    user = PersonalAccount.objects.get(user_id=user_id)
+    bot.send_message(user.telegram_chat_id, f'Налетай, успевай, покупай, цена {price} р. Ссылька {linkproduct}')
