@@ -107,7 +107,7 @@ LOGOUT_REDIRECT_URL = 'login'
 
 LOGIN_URL = 'login'   # For @login_required
 
-# CSRF_TRUSTED_ORIGINS = ['https://getwb.com']
+CSRF_TRUSTED_ORIGINS = ['https://getwb.com']
 
 
 try:
