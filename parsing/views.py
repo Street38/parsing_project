@@ -92,6 +92,13 @@ class CreateTrackingView(CreateView):
     template_name = "parsing/create.html"
     success_url = reverse_lazy("current")
 
+
+    def get_context_data(self, **kwargs):
+        '''Проверка, указан ли телеграм пользователя в ЛК'''
+        context = super().get_context_data(**kwargs)
+        context['form'].initial['telegram'] = PersonalAccount.objects.filter(user_id=self.request.user.id).exists()
+        return context
+
     def form_valid(self, form):
         newlink = form.save(commit=False)
         newlink.user = self.request.user

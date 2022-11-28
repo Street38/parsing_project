@@ -5,15 +5,20 @@
 {% include 'includes/buttonset.html' %}
 <div class="d-flex justify-content-center">
         <form method="POST">
-            <br>
-            <h1>Добавьте товар</h1>
-            <br>
-            {% csrf_token %}
-            {{ form.as_p }}
-            <br>
-            <div class="d-grid gap-2 col-4 mx-auto">
-              <button type="submit" class="btn btn-outline-dark">Добавить</button>
-            </div>
+            {% if form.initial.telegram %}
+                <br>
+                <h1>Добавьте товар</h1>
+                <br>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <br>
+                <div class="d-grid gap-2 col-4 mx-auto">
+                  <button type="submit" class="btn btn-outline-dark">Добавить</button>
+                </div>
+            {% else %}
+                <br>
+                <h2>Чтобы добавить товар в отслеживания, необходимо в личном кабинете указать телеграм для уведомлений</h2>
+            {% endif %}
         </form>
 </div>
 {% endblock %}
