@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import TrackingModel, PersonalAccount
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class SignupForm(UserCreationForm):
@@ -54,13 +55,7 @@ class UpdateTrackingForm(forms.ModelForm):
     class Meta:
         model = TrackingModel
         fields = ['description', 'linkproduct', 'price', 'complete']
-        # widgets = {
-        #     'description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Кроссовки'}),
-        #     'linkproduct': forms.URLInput(attrs={'class': 'form-control', 'placeholder': 'https://www.wildberries.ru/'}),
-        #     'price': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '1000'}),
-        #
-        #
-        # }
+
 
 
 class ArchiveTrackingForm(forms.ModelForm):
@@ -87,3 +82,10 @@ class PersonalForms(forms.ModelForm):
     class Meta:
         model = PersonalAccount
         fields = ['name', 'telegram_account']
+
+
+class FeedbackForms(forms.Form):
+    name = forms.CharField(label='Имя', widget=forms.TextInput(attrs={'class': 'form-control'}))
+    # phone_number = PhoneNumberField()
+    email = forms.EmailField(label='Почта', widget=forms.EmailInput(attrs={'class': 'form-control'}))
+    message = forms.CharField(label='Текст сообщения', widget=forms.Textarea(attrs={'class': 'form-control'}))

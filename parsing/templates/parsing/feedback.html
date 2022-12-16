@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %} Напишите нам {% endblock %}
+
+{% block content %}
+<br>
+<br>
+<div class="d-flex justify-content-center">
+        <form method="POST">
+                <br>
+                <h1>Обратная связь</h1>
+                <br>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <br>
+                <div class="d-grid gap-2 col-4 mx-auto">
+                  <button type="submit" class="btn btn-outline-dark">Отправить</button>
+                </div>
+
+        </form>
+</div>
+{% endblock %}
