@@ -86,6 +86,6 @@ class PersonalForms(forms.ModelForm):
 
 class FeedbackForms(forms.Form):
     name = forms.CharField(label='Имя', widget=forms.TextInput(attrs={'class': 'form-control'}))
-    phone_number = PhoneNumberField()
+    # phone_number = PhoneNumberField()
     email = forms.EmailField(label='Почта', widget=forms.EmailInput(attrs={'class': 'form-control'}))
     message = forms.CharField(label='Текст сообщения', widget=forms.Textarea(attrs={'class': 'form-control'}))
