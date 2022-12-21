@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'parsing.apps.ParsingConfig',
     'phonenumber_field',
+    'feedback'
 ]
 
 MIDDLEWARE = [

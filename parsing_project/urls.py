@@ -21,5 +21,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('parsing.urls')),
+    path('feedback/', include('feedback.urls')),
 ]
 handler404 = pageNotFound

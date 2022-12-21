@@ -13,5 +13,5 @@ urlpatterns = [
     path('personal/<int:pk>', PersonalAccountView.as_view(), name='personal'),
     path('update/<int:pk>', UpdateTrackingView.as_view(), name='update'),
     path('archive/<int:pk>', ArchiveTrackingView.as_view(), name='archive'),
-    path('feedback', FeedbackView.as_view(), name='feedback'),
+
 ]

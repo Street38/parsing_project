@@ -3,12 +3,12 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseNotFound, HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, UpdateView, View
-from .forms import SignupForm, LoginForm, CreateTrackingForm, UpdateTrackingForm, ArchiveTrackingForm, PersonalForms, FeedbackForms
+from .forms import SignupForm, LoginForm, CreateTrackingForm, UpdateTrackingForm, ArchiveTrackingForm, PersonalForms
 from django.contrib.auth.views import LoginView, LogoutView
 from .models import TrackingModel, PersonalAccount
 from django.utils import timezone
 from django.db.models import Q
-from .services.send_message_feedback import send_form_feedback
+
 
 
 def home(request):
@@ -131,14 +131,14 @@ class PersonalAccountView(UpdateView):
 
 
 
-class FeedbackView(View):
-    def get(self, request):
-        form = FeedbackForms()
-        return render(request, 'parsing/feedback.html', context={'form': form})
-
-    def post(self, request):
-        name = request.POST['name']
-        email = request.POST['email']
-        message = request.POST['message']
-        send_form_feedback(name, email, message)
-        return render(request, 'parsing/home.html')
+# class FeedbackView(View):
+#     def get(self, request):
+#         form = FeedbackForms()
+#         return render(request, 'parsing/feedback.html', context={'form': form})
+#
+#     def post(self, request):
+#         name = request.POST['name']
+#         email = request.POST['email']
+#         message = request.POST['message']
+#         send_form_feedback(name, email, message)
+#         return render(request, 'parsing/home.html')
