@@ -7,7 +7,15 @@ def get_price(linkproduct):
     data = response.json()
     try:
         price = int(data['data']['products'][0]['salePriceU'] / 100)
-        return price
+        return price, data
+    except:
+        return None
+
+
+def get_stocks(data):
+    try:
+        stocks = data['data']['products'][0]['sizes'][0]['stocks']
+        return stocks
     except:
         return None
 

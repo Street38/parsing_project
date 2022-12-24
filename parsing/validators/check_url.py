@@ -1,4 +1,4 @@
-from parsing.services.get_price import get_price
+from parsing.services.get_price_stocks import get_price
 from django.core.exceptions import ValidationError
 
 
